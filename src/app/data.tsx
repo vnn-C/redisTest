@@ -43,7 +43,7 @@ export async function getPageName(pageId: any){
 
 //gets page properties from redis database
 export async function getPageProps(pageId: any){
-	fetch(`${process.env.KV_REST_API_URL}/get/${pageId}Props`, {
+	await fetch(`${process.env.KV_REST_API_URL}/get/${pageId}Props`, {
   	headers: {
     		Authorization: `Bearer ${process.env.KV_REST_API_TOKEN}`,
   		},
