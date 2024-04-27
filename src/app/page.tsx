@@ -6,6 +6,7 @@ export default function Home() {
   console.log("Starting");
   const test = data.setPageProps("SetTest", "Test");
   const testFour = data.getPageProps("SetTestProps");
+  console.log("Success");
   const testTwo = data.setPageName("SetTest", "Test");
   const testThree = data.setPageContent("SetTest", "Test");
 
@@ -17,7 +18,7 @@ export default function Home() {
         
         <p>
           Get started by editing&nbsp;
-          {String(testFour)}
+         
           <code className={styles.code}>src/app/page.tsx</code>
         </p>
         <div>
