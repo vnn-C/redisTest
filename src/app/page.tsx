@@ -17,7 +17,7 @@ export default function Home() {
         
         <p>
           Get started by editing&nbsp;
-          {}
+          {String(testFour)}
           <code className={styles.code}>src/app/page.tsx</code>
         </p>
         <div>
