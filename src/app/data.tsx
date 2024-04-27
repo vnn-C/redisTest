@@ -8,7 +8,7 @@ import { redis } from '@/vercel/kv'
 const rootID = "9546d31d7cf249ebb72e0137c5da3ee7";
 
 //inserts readable page name into database
-async function setPageName(pageId: any, pageName: any){
+export async function setPageName(pageId: any, pageName: any){
     fetch(`${process.env.KV_REST_API_URL}/set/${pageId}Name`, {
         headers: {
             Authorization: `Bearer ${process.env.KV_REST_API_TOKEN}`,
@@ -26,7 +26,7 @@ async function setPageName(pageId: any, pageName: any){
 }
 
 //gets readable page name from database
-async function getPageName(pageId: any){
+export async function getPageName(pageId: any){
 	fetch(`${process.env.KV_REST_API_URL}/get/${pageId}Name`, {
   	headers: {
     		Authorization: `Bearer ${process.env.KV_REST_API_TOKEN}`,
@@ -81,7 +81,7 @@ export async function setPageProps(pageId: any, props: any){
 }
 
 //gets page content from redis database
-async function getPageContent(pageId: any){
+export async function getPageContent(pageId: any){
     fetch(`${process.env.KV_REST_API_URL}/get/${pageId}Content`, {
         headers: {
               Authorization: `Bearer ${process.env.KV_REST_API_TOKEN}`,
@@ -96,7 +96,7 @@ async function getPageContent(pageId: any){
 }
 
 //inserts page content into redis database
-async function setPageContent(pageId: any, pageContent: any){
+export async function setPageContent(pageId: any, pageContent: any){
 
     //get page content from pageId first
     //const pageContent = []; //placeholder
