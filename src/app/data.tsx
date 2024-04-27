@@ -37,7 +37,7 @@ export async function getPageName(pageId: any){
                 throw new Error(`Error with getting ${pageId} name`);
             }
             return response.json()})
-            .then((data) => {return data});
+            .then((data) => console.log(data));
         
 }
 
