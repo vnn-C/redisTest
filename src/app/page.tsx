@@ -1,9 +1,11 @@
 import Image from "next/image";
 import styles from "./page.module.css";
-import { setPageProps } from "./data";
+import * as data from "./data";
 export default function Home() {
   console.log("Starting");
-  const test = setPageProps(1012345, "Test");
+  const test = data.setPageProps("SetTest", "Test");
+  console.log(data.getPageProps("SetTest"));
+
   console.log(test);
 
   return (
