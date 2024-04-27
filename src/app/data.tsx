@@ -48,12 +48,14 @@ export async function getPageProps(pageId: any){
     		Authorization: `Bearer ${process.env.KV_REST_API_TOKEN}`,
   		},
 	})
-  		.then((response) => {
-            if(!response.ok){
-                throw new Error(`Error with getting ${pageId} properties`);
-            }
+  		.then((response) => //{
+            //if(!response.ok){
+                //throw new Error(`Error with getting ${pageId} properties`);
+            //}
             //return response.json()
-        })
+            response.json()
+        //}
+        )
         .then((data) => console.log(data));
 }
 
