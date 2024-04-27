@@ -2,8 +2,10 @@ import Image from "next/image";
 import styles from "./page.module.css";
 import { setPageProps } from "./data";
 export default function Home() {
+  console.log("Starting");
   const test = setPageProps(1012345, "Test");
   console.log(test);
+
   return (
     <main className={styles.main}>
       <div className={styles.description}>
