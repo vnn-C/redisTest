@@ -4,10 +4,10 @@ import * as data from "./data";
 import { stringify } from "querystring";
 export default function Home() {
   console.log("Starting");
-  var test = data.setPageProps("SetTest", "Test");
-  var testFour = data.getPageProps("SetTest");
-  var testTwo = data.setPageName("SetTest", "Test");
-  var testThree = data.setPageContent("SetTest", "Test");
+  const test = data.setPageProps("SetTest", "Test");
+  const testFour = data.getPageProps("SetTestProps");
+  const testTwo = data.setPageName("SetTest", "Test");
+  const testThree = data.setPageContent("SetTest", "Test");
 
   
 
@@ -17,7 +17,7 @@ export default function Home() {
         
         <p>
           Get started by editing&nbsp;
-          {String(testFour)}
+          {}
           <code className={styles.code}>src/app/page.tsx</code>
         </p>
         <div>
