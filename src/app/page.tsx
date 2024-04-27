@@ -5,7 +5,7 @@ import { stringify } from "querystring";
 export default function Home() {
   console.log("Starting");
   var test = data.setPageProps("SetTest", "Test");
-  //console.log(data.getPageProps("SetTest"));
+  console.log(data.getPageProps("SetTest"));
   var testTwo = data.setPageName("SetTest", "Test");
   var testThree = data.setPageContent("SetTest", "Test");
 
