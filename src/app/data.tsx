@@ -53,7 +53,7 @@ export async function getPageProps(pageId: any){
                 throw new Error(`Error with getting ${pageId} properties`);
             }
             return response.json()})
-            .then((data) => {return data});
+            .then((data) => console.log(data));
         
 }
 
