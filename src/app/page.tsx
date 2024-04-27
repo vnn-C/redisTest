@@ -1,18 +1,23 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 import * as data from "./data";
+import { stringify } from "querystring";
 export default function Home() {
   console.log("Starting");
-  const test = data.setPageProps("SetTest", "Test");
+  var test = data.setPageProps("SetTest", "Test");
   console.log(data.getPageProps("SetTest"));
+  var testTwo = data.setPageName("NameTest", "Test");
+  var testThree = data.setPageContent("ContentTest", "Test");
 
-  console.log(test);
+  
 
   return (
     <main className={styles.main}>
       <div className={styles.description}>
+        
         <p>
           Get started by editing&nbsp;
+          
           <code className={styles.code}>src/app/page.tsx</code>
         </p>
         <div>
@@ -55,7 +60,7 @@ export default function Home() {
           <h2>
             Docs <span>-&gt;</span>
           </h2>
-          <p></p>
+          <p>  </p>
         </a>
 
         <a
