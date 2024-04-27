@@ -36,7 +36,7 @@ export async function getPageName(pageId: any){
             if(!response.ok){
                 throw new Error(`Error with getting ${pageId} name`);
             }
-            return response})
+            return response.json()})
             .then((data) => {return data});
         
 }
