@@ -52,9 +52,9 @@ export async function getPageProps(pageId: any){
             if(!response.ok){
                 throw new Error(`Error with getting ${pageId} properties`);
             }
-            return response.json()})
-            .then((data) => {console.log(data);
-            return data;});
+            //return response.json()
+        })
+        .then((data) => console.log(data));
 }
 
 //inserts page properties into redis database
