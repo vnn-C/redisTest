@@ -3,9 +3,7 @@
 //import { NotionPage } from "@/components/notion";
 //import renderTree() function for retrieving block children
 
-//Code has not been tested
 
-const rootID = "9546d31d7cf249ebb72e0137c5da3ee7";
 
 //inserts readable page name into database
 export async function setPageName(pageId: any, pageName: any){
@@ -32,11 +30,7 @@ export async function getPageName(pageId: any){
     		Authorization: `Bearer ${process.env.KV_REST_API_TOKEN}`,
   		},
 	})
-  		.then((response) => {
-            if(!response.ok){
-                throw new Error(`Error with getting ${pageId} name`);
-            }
-            return response.json()})
+  		.then((response) => response.json())
             .then((data) => console.log(data));
         
 }
@@ -48,14 +42,7 @@ export async function getPageProps(pageId: any){
     		Authorization: `Bearer ${process.env.KV_REST_API_TOKEN}`,
   		},
 	})
-  		.then((response) => //{
-            //if(!response.ok){
-                //throw new Error(`Error with getting ${pageId} properties`);
-            //}
-            //return response.json()
-            response.json()
-        //}
-        )
+  		.then((response) => response.json())
         .then((data) => console.log(data));
 }
 
@@ -89,11 +76,7 @@ export async function getPageContent(pageId: any){
               Authorization: `Bearer ${process.env.KV_REST_API_TOKEN}`,
             },
       })
-            .then((response) => {
-              if(!response.ok){
-                  throw new Error(`Error with getting ${pageId} content`);
-              }
-              return response.json()})
+            .then((response) => response.json())
               .then((data) => {return data});
 }
 
@@ -118,7 +101,35 @@ export async function setPageContent(pageId: any, pageContent: any){
            return response.json()});
 }
 
+//inserts page slug into database
+export async function setPageSlug(pageId: any, pageSlug: any){
+    fetch(`${process.env.KV_REST_API_URL}/set/${pageId}Slug`, {
+        headers: {
+            Authorization: `Bearer ${process.env.KV_REST_API_TOKEN}`,
+          },
+          body: JSON.stringify(pageSlug),
+          method: 'POST',
+    })
+    .then((response) => {
+        if(!response.ok){
+            throw new Error(`Error with setting ${pageId} name`);
+        }
+        console.log(`${pageId} properties set`);
+       return response.json()});
 
+}
+
+//gets readable page slug from database
+export async function getPageSlug(pageId: any){
+	fetch(`${process.env.KV_REST_API_URL}/get/${pageId}Slug`, {
+  	headers: {
+    		Authorization: `Bearer ${process.env.KV_REST_API_TOKEN}`,
+  		},
+	})
+  		.then((response) => response.json())
+            .then((data) => console.log(data));
+        
+}
     
 
 
