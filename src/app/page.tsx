@@ -4,11 +4,11 @@ import * as data from "./data";
 import { stringify } from "querystring";
 export default function Home() {
   console.log("Starting");
-  const test = data.setPageProps("SetTest", "Test");
+  const test = data.setPageProps("SetTest", "Props");
   const testFour = data.getPageProps("SetTestProps");
   console.log("Success");
-  const testTwo = data.setPageName("SetTest", "Test");
-  const testThree = data.setPageContent("SetTest", "Test");
+  const testTwo = data.setPageName("SetTest", "Name");
+  const testThree = data.setPageContent("SetTest", "Content");
 
   
 
