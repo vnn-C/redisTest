@@ -3,12 +3,42 @@ import styles from "./page.module.css";
 import * as data from "./data";
 import { stringify } from "querystring";
 export default function Home() {
+
+  const renderTree = (blockId: string) => {
+    fetch(`https://api.notion.com/v1/blocks/${blockId}/children`, {
+        headers: {
+            'Authorization': 'Bearer secret_vdJTeZt1yTHBG4Uio4eJTfKuqAfOEj8SjbyzlwPmPRn',
+            'Notion-Version': '2022-06-28'
+        }
+    })
+    .then(response => {
+        if(!response.ok) {
+            throw new Error('Network response not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
+        data.results.forEach((block: any) => {
+            //console.log(block);
+            if(block.has_children) {
+                if(block.child_page){
+                    console.log(block.child_page.title);
+                }
+                renderTree(block.id);
+            }
+        });
+    })
+    .catch(error => {
+        console.error("Issue with fetch operation", error);
+    });
+  }
+
   console.log("Starting");
   const test = data.setPageProps("SetTest", "Props");
   const testFour = data.getPageProps("SetTestProps");
   console.log("Success");
   const testTwo = data.setPageName("SetTest", "Name");
-  const testThree = data.setPageContent("SetTest", "Content");
+  const testThree = data.setPageContent("SetTest", renderTree("52505493f6fb488abe790d1a379d8275"));
 
   
 

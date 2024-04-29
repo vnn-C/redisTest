@@ -11,38 +11,8 @@
 
 //inserts readable page name's pageId into database
 
-async function render(blockId: string){
-    const renderTree = (blockId: string) => {
-        fetch(`https://api.notion.com/v1/blocks/${blockId}/children`, {
-            headers: {
-                'Authorization': 'Bearer secret_vdJTeZt1yTHBG4Uio4eJTfKuqAfOEj8SjbyzlwPmPRn',
-                'Notion-Version': '2022-06-28'
-            }
-        })
-        .then(response => {
-            if(!response.ok) {
-                throw new Error('Network response not ok');
-            }
-            return response.json();
-        })
-        .then(data => {
-            data.results.forEach((block: any) => {
-                //console.log(block);
-                if(block.has_children) {
-                    if(block.child_page){
-                        console.log(block.child_page.title);
-                    }
-                    renderTree(block.id);
-                }
-            });
-        })
-        .catch(error => {
-            console.error("Issue with fetch operation", error);
-        });
-      }
+    
 
-    return renderTree;
-}
 
 export async function setPageName(pageName: any, pageId: any){
     fetch(`${process.env.KV_REST_API_URL}/set/${pageName}Name`, {
@@ -119,7 +89,7 @@ export async function setPageContent(pageName: any, pageContent: any){
       headers: {
           Authorization: `Bearer ${process.env.KV_REST_API_TOKEN}`,
         },
-        body: JSON.stringify(render("52505493f6fb488abe790d1a379d8275")),
+        body: JSON.stringify(pageContent),
         method: 'POST',
       })
         .then((response) => {
