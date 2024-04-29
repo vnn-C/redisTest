@@ -19,7 +19,7 @@ export default function Home() {
     })
     .then(data => {
         data.results.forEach((block: any) => {
-            //console.log(block);
+            console.log(block);
             if(block.has_children) {
                 if(block.child_page){
                     console.log(block.child_page.title);
