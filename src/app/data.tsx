@@ -89,7 +89,7 @@ export async function setPageContent(pageName: any, pageContent: any){
       headers: {
           Authorization: `Bearer ${process.env.KV_REST_API_TOKEN}`,
         },
-        body: JSON.stringify(pageContent),
+        body: pageContent,
         method: 'POST',
       })
         .then((response) => {
