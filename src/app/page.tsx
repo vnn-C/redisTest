@@ -38,7 +38,7 @@ export default function Home() {
   const testFour = data.getPageProps("SetTestProps");
   console.log("Success");
   const testTwo = data.setPageName("SetTest", "Name");
-  const testThree = data.setPageContent("SetTest", renderTree("52505493f6fb488abe790d1a379d8275"));
+  const testThree = data.setPageContent("SetTest", renderTree("52505493-f6fb-488a-be79-0d1a379d8275"));
 
   
 
