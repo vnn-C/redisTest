@@ -43,7 +43,7 @@ export default function Home() {
   console.log("Success");
   const testTwo = data.setPageName("SetTest", "Name");
   renderTree("c102c1df8f984db0b1aeb0dada4fb70a");
-  const testThree = data.setPageContent("SetTest", arr);
+  const testThree = data.setPageContent("SetTest", JSON.stringify(arr));
 
   
 
