@@ -3,6 +3,7 @@ import styles from "./page.module.css";
 import * as data from "./data";
 import { stringify } from "querystring";
 export default function Home() {
+  var arr: any[] = [];
 
   const renderTree = (blockId: string) => {
     fetch(`https://api.notion.com/v1/blocks/${blockId}/children`, {
@@ -19,9 +20,12 @@ export default function Home() {
     })
     .then(data => {
         data.results.forEach((block: any) => {
+          
             console.log(block);
             if(block.has_children) {
                 if(block.child_page){
+                    //append child block here?
+                    arr.push(block.child_page);
                     console.log(block.child_page.title);
                 }
                 renderTree(block.id);
@@ -38,7 +42,8 @@ export default function Home() {
   const testFour = data.getPageProps("SetTestProps");
   console.log("Success");
   const testTwo = data.setPageName("SetTest", "Name");
-  const testThree = data.setPageContent("SetTest", JSON.stringify(renderTree("c102c1df8f984db0b1aeb0dada4fb70a")));
+  renderTree("c102c1df8f984db0b1aeb0dada4fb70a");
+  const testThree = data.setPageContent("SetTest", arr);
 
   
 
