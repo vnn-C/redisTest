@@ -25,7 +25,7 @@ export default function Home() {
             if(block.has_children) {
                 if(block.child_page){
                     //append child block here?
-                    arr.push(block.child_page);
+                    arr.push(JSON.stringify(block.child_page));
                     console.log(block.child_page.title);
                 }
                 renderTree(block.id);
