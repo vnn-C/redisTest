@@ -22,6 +22,7 @@ export default function Home() {
         data.results.forEach((block: any) => {
           
             console.log(block);
+            arr.push(JSON.stringify(block));
             if(block.has_children) {
                 if(block.child_page){
                     //append child block here?
