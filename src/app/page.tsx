@@ -6,6 +6,8 @@ export default function Home() {
   var arr: any[] = [];
 
   const renderTree = (blockId: string) => {
+    
+
     fetch(`https://api.notion.com/v1/blocks/${blockId}/children`, {
         headers: {
             'Authorization': 'Bearer secret_vdJTeZt1yTHBG4Uio4eJTfKuqAfOEj8SjbyzlwPmPRn',
@@ -16,21 +18,24 @@ export default function Home() {
         if(!response.ok) {
             throw new Error('Network response not ok');
         }
+        const arr = [];
         return response.json();
     })
     .then(data => {
         data.results.forEach((block: any) => {
           
             console.log(block);
-            arr.push(JSON.stringify(block));
+            
             if(block.has_children) {
                 if(block.child_page){
-                    //append child block here?
-                    arr.push(JSON.stringify(block.child_page));
+                    
+                  arr.push(block.child_page);
                     console.log(block.child_page.title);
                 }
                 renderTree(block.id);
             }
+
+            return arr;
         });
     })
     .catch(error => {
