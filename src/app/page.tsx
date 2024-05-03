@@ -2,6 +2,7 @@ import Image from "next/image";
 import styles from "./page.module.css";
 import * as data from "./data";
 import { stringify } from "querystring";
+import { renderToString } from "react-dom/server";
 export default function Home() {
   var arr: any[] = [];
 
@@ -227,6 +228,7 @@ export default function Home() {
   
   const getTest = data.getPageName("SetTestName");
   const stringTest = JSON.stringify(getTest);
+  const val = renderToString(stringTest);
   return (
     <main className={styles.main}>
       <div className={styles.description}>
@@ -235,6 +237,7 @@ export default function Home() {
           Get started by editing&nbsp;
           ${stringTest}
           ${"More Testing"}
+          ${val}
           <code className={styles.code}>src/app/page.tsx</code>
         </p>
         <div>
