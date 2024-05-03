@@ -225,14 +225,15 @@ export default function Home() {
   const testSeven = data.setPageSlugKey("SetTest", "Slug");
   const testEight = data.setPageContentKey("SetTest", JSON.stringify(testArr));
   
-  const getTest = JSON.stringify(data.getPageName("SetTestName"));
+  const getTest = data.getPageName("SetTestName");
   return (
     <main className={styles.main}>
       <div className={styles.description}>
         
         <p>
           Get started by editing&nbsp;
-          ${getTest}
+          ${JSON.stringify(getTest)}
+          ${"More Testing"}
           <code className={styles.code}>src/app/page.tsx</code>
         </p>
         <div>
