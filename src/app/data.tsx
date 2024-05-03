@@ -144,15 +144,19 @@ export async function getPageSlug(pageName: any){
         
 }
     
+
+
+
+
 //functions for value:key pairs
 
-//page name
+//page name key
 export async function setPageNameKey(pageName: any, pageId: any){
   fetch(`${process.env.KV_REST_API_URL}/set/${pageId}`, {
     headers: {
         Authorization: `Bearer ${process.env.KV_REST_API_TOKEN}`,
       },
-      body: JSON.stringify(pageName) + "Name",
+      body: JSON.stringify(pageName + "Name"),
       method: 'POST',
 })
 .then((response) => {
@@ -173,13 +177,13 @@ export async function getPageNameKey(pageId: any){
             .then((data) => console.log(data));
 }
 
-//page props
+//page props key
 export async function setPagePropsKey(pageName: any, pageProps: any){
     fetch(`${process.env.KV_REST_API_URL}/set/${pageProps}`, {
       headers: {
           Authorization: `Bearer ${process.env.KV_REST_API_TOKEN}`,
         },
-        body: JSON.stringify(pageName) + "Props",
+        body: JSON.stringify(pageName + "Props"),
         method: 'POST',
     })
     .then((response) => {
@@ -200,13 +204,13 @@ export async function getPagePropsKey(pageProps: any){
             .then((data) => console.log(data));
 }
 
-//page slugs
+//page slugs key
 export async function setPageSlugKey(pageName: any, pageSlug: any){
   fetch(`${process.env.KV_REST_API_URL}/set/${pageSlug}`, {
     headers: {
         Authorization: `Bearer ${process.env.KV_REST_API_TOKEN}`,
       },
-      body: JSON.stringify(pageName) + "Slug",
+      body: JSON.stringify(pageName + "Slug"),
       method: 'POST',
 })
 .then((response) => {
@@ -227,13 +231,13 @@ export async function getPageSlugKey(pageSlug: any){
             .then((data) => console.log(data));
 }
 
-//page content
+//page content key
 export async function setPageContentKey(pageName: any, pageContent: any){
   fetch(`${process.env.KV_REST_API_URL}/set/${pageContent}`, {
     headers: {
         Authorization: `Bearer ${process.env.KV_REST_API_TOKEN}`,
       },
-      body: JSON.stringify(pageName) + "Content",
+      body: JSON.stringify(pageName + "Content"),
       method: 'POST',
   })
   .then((response) => {
