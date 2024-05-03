@@ -226,13 +226,14 @@ export default function Home() {
   const testEight = data.setPageContentKey("SetTest", JSON.stringify(testArr));
   
   const getTest = data.getPageName("SetTestName");
+  const stringTest = JSON.stringify(getTest);
   return (
     <main className={styles.main}>
       <div className={styles.description}>
         
         <p>
           Get started by editing&nbsp;
-          ${JSON.stringify(getTest)}
+          ${stringTest}
           ${"More Testing"}
           <code className={styles.code}>src/app/page.tsx</code>
         </p>
