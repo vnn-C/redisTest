@@ -34,7 +34,7 @@ export async function setPageName(pageName: any, pageId: any){
 
 //gets readable page name's pageId from database
 
-export function getPageName(pageName: any){
+export async function getPageName(pageName: any){
 	fetch(`${process.env.KV_REST_API_URL}/get/${pageName}Name`, {
   	headers: {
     		Authorization: `Bearer ${process.env.KV_REST_API_TOKEN}`,
@@ -102,13 +102,13 @@ export async function setPageContent(pageName: any, pageContent: any){
 }
 
 //gets page content from redis database
-export function getPageContent(pageName: any){
+export function getPageContent(pageName: any) {
     fetch(`${process.env.KV_REST_API_URL}/get/${pageName}Content`, {
         headers: {
               Authorization: `Bearer ${process.env.KV_REST_API_TOKEN}`,
             },
       })
-            .then((response) => {return response.json()})
+            .then((response) => response.json())
               .then((data) => console.log(data));
 }
 
