@@ -34,14 +34,18 @@ export async function setPageName(pageName: any, pageId: any){
 
 //gets readable page name's pageId from database
 
-export async function getPageName(pageName: any){
+export function getPageName(pageName: any){
 	fetch(`${process.env.KV_REST_API_URL}/get/${pageName}Name`, {
   	headers: {
     		Authorization: `Bearer ${process.env.KV_REST_API_TOKEN}`,
   		},
 	})
-  		.then((response) => response.json())
-            .then((data) => console.log(data));
+  .then((response) => {
+    if(!response.ok){
+        throw new Error(`Error with getting ${pageName} name`);
+    }
+    console.log(`${pageName} name set`);
+   return response.json()});
         
 }
 
