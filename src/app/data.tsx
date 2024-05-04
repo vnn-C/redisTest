@@ -40,7 +40,7 @@ export function getPageName(pageName: any){
   		},
 	})
   		.then((response) => response.json())
-            .then((data) => console.log(data));
+            .then((data) => {return data});
         
 }
 
