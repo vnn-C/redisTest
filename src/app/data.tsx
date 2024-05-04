@@ -33,6 +33,7 @@ export async function setPageName(pageName: any, pageId: any){
 }
 
 //gets readable page name's pageId from database
+
 export function getPageName(pageName: any){
 	fetch(`${process.env.KV_REST_API_URL}/get/${pageName}Name`, {
   	headers: {
@@ -40,7 +41,7 @@ export function getPageName(pageName: any){
   		},
 	})
   		.then((response) => response.json())
-            .then((data) => {return data});
+            .then((data) => console.log(data));
         
 }
 
@@ -67,7 +68,6 @@ export async function setPageProps(pageName: any, props: any){
            return response.json()});
     
 }
-
 
 //gets page properties from redis database
 export function getPageProps(pageName: any){
@@ -108,8 +108,8 @@ export function getPageContent(pageName: any){
               Authorization: `Bearer ${process.env.KV_REST_API_TOKEN}`,
             },
       })
-            .then((response) => response.json())
-              .then((data) => {return data});
+            .then((response) => {return response.json()})
+              .then((data) => console.log(data));
 }
 
 
@@ -144,10 +144,6 @@ export function getPageSlug(pageName: any){
         
 }
     
-
-
-
-
 //functions for value:key pairs
 
 //page name key
