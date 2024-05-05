@@ -216,8 +216,8 @@ export default async function Home() {
   const test = data.setPageProps("SetTest", JSON.stringify(testProps));
   const testFour = data.getPageProps("SetTestProps");
   console.log("Success");
-  const testTwo = data.setPageName("SetTest", "Name");
-  renderTree("c102c1df8f984db0b1aeb0dada4fb70a");
+  //const testTwo = data.setPageName("SetTest", "Name");
+  //renderTree("c102c1df8f984db0b1aeb0dada4fb70a");
   arr.push("Test Here");
   const testThree = data.setPageContent("SetTest", JSON.stringify(testArr));
 
@@ -245,7 +245,7 @@ export default async function Home() {
         
         <p>
           Get started by editing&nbsp;
-          {stringTest}
+          {<p> stringTest </p>}
           {" More Testing "}
           {testVar}
           {" GetRes Test: "}

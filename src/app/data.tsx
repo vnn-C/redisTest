@@ -49,6 +49,7 @@ export async function getPageName(pageName: any){
     return response.json();
   })
   .then((data) => {
+      console.log(data);
       return data;
   })
         
