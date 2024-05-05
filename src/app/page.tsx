@@ -227,14 +227,16 @@ export default async function Home() {
   const testEight = data.setPageContentKey("SetTest", JSON.stringify(testArr));
   let getRes;
   let getResTwo;
+  let stringTest;
   const getTest = data.getPageName("SetTestName").then((response) => {getRes = response;});
-  //try{
+  try{
     getResTwo = await data.getPageName("SetTestName");
-  //}
- // catch(error){
-   // console.log(error);
-  //}
-  const stringTest = JSON.stringify(getResTwo);
+    stringTest = JSON.stringify(getResTwo);
+  }
+  catch(error){
+    console.log(error);
+  }
+  
   const testVar = "Test Variable";
 
   return (
