@@ -245,7 +245,7 @@ export default async function Home() {
         
         <p>
           Get started by editing&nbsp;
-          {<p> stringTest </p>}
+          {stringTest}
           {" More Testing "}
           {testVar}
           {" GetRes Test: "}

@@ -46,6 +46,7 @@ export async function getPageName(pageName: any){
         throw new Error(`Error with getting ${pageName} name`);
     }
     console.log(`${pageName} name obtained`);
+    console.log(response.json());
     return response.json();
   })
   .then((data) => {
