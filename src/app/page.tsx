@@ -227,7 +227,7 @@ export default function Home() {
   const testEight = data.setPageContentKey("SetTest", JSON.stringify(testArr));
   let getRes;
   const getTest = data.getPageName("SetTestName").then((response) => {getRes = response;});
-  const stringTest = JSON.stringify(getTest);
+  const stringTest = JSON.stringify(getRes);
   const testVar = "Test Variable";
 
   return (
@@ -239,6 +239,8 @@ export default function Home() {
           {stringTest}
           {" More Testing "}
           {testVar}
+          {" GetRes Test: "}
+          {getRes}
           <code className={styles.code}>src/app/page.tsx</code>
         </p>
         <div>
