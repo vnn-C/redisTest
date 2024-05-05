@@ -35,14 +35,15 @@ export async function setPageName(pageName: any, pageId: any){
 //gets readable page name's pageId from database
 
 export async function getPageName(pageName: any){
+  let res;
 	fetch(`${process.env.KV_REST_API_URL}/get/${pageName}Name`, {
   	headers: {
     		Authorization: `Bearer ${process.env.KV_REST_API_TOKEN}`,
   		},
 	})
-  .then((response) => {
-    
-   return response.json()});
+  .then((response) => response.json())
+        .then((data) => res = data);
+  return res;
         
 }
 
@@ -72,13 +73,15 @@ export async function setPageProps(pageName: any, props: any){
 
 //gets page properties from redis database
 export function getPageProps(pageName: any){
+  let res;
 	fetch(`${process.env.KV_REST_API_URL}/get/${pageName}Props`, {
   	headers: {
     		Authorization: `Bearer ${process.env.KV_REST_API_TOKEN}`,
   		},
 	})
   		.then((response) => response.json())
-        .then((data) => console.log(data));
+        .then((data) => res = data);
+  return res;
 }
 
 //inserts page content into redis database

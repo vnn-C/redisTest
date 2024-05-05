@@ -228,16 +228,17 @@ export default function Home() {
   
   const getTest = data.getPageName("SetTestName");
   const stringTest = JSON.stringify(getTest);
-  
+  const testVar = "Test Variable";
+
   return (
     <main className={styles.main}>
       <div className={styles.description}>
         
         <p>
           Get started by editing&nbsp;
-          ${stringTest}
-          ${"More Testing"}
-          
+          {stringTest}
+          {" More Testing "}
+          {testVar}
           <code className={styles.code}>src/app/page.tsx</code>
         </p>
         <div>
