@@ -144,7 +144,7 @@ export async function getPageSlug(pageName: any){
 	})
   		.then((response) => response.json())
             .then((data) => {console.log(data);
-            return data.resolve();
+            return data;
             });
         
 }
