@@ -213,8 +213,10 @@ export default async function Home() {
   }
 
   console.log("Starting");
-  //const test = data.setPageProps("SetTest", JSON.stringify(testProps));
-  //const testFour = data.getPageProps("SetTestProps");
+  const test = data.setPageProps("SetTest", JSON.stringify(testProps));
+  const testFour = data.getPageProps("SetTestProps");
+  const testSlug = data.setPageSlug("SetTest", "Slug");
+  const getSlug = data.getPageSlug("SetTestSlug");
   console.log("Success");
   //const testTwo = data.setPageName("SetTest", "Name");
   //renderTree("c102c1df8f984db0b1aeb0dada4fb70a");
@@ -229,13 +231,13 @@ export default async function Home() {
   let getResTwo;
   let stringTest;
   //const getTest = data.getPageName("SetTestName").then((response) => {getRes = response;});
-  try{
-    getResTwo = await data.getPageName("SetTestName");
+  //try{
+    //getResTwo = await data.getPageName("SetTestName");
     //stringTest = JSON.stringify(getResTwo);
-  }
-  catch(error){
-    console.log(error);
-  }
+  //}
+  //catch(error){
+    //console.log(error);
+  //}
   
   const testVar = "Test Variable";
 
