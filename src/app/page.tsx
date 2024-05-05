@@ -228,10 +228,10 @@ export default async function Home() {
   let getRes;
   let getResTwo;
   let stringTest;
-  const getTest = data.getPageName("SetTestName").then((response) => {getRes = response;});
+  //const getTest = data.getPageName("SetTestName").then((response) => {getRes = response;});
   try{
     getResTwo = await data.getPageName("SetTestName");
-    stringTest = JSON.stringify(getResTwo);
+    //stringTest = JSON.stringify(getResTwo);
   }
   catch(error){
     console.log(error);
