@@ -227,7 +227,7 @@ export default async function Home() {
   const testThree = data.setPageContent("SetTest", JSON.stringify(testArr));
   const getContent = data.getPageContent("SetTest");
 
-  console.log("Test Slug: " + testSlug);
+  console.log("Test Slug: " + await getSlug);
   //const testFive = data.setPagePropsKey("SetTest", JSON.stringify(testProps));
   //const testSix = data.setPageNameKey("SetTest", "Name");
   //const testSeven = data.setPageSlugKey("SetTest", "Slug");
