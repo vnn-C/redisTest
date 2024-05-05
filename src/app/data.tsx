@@ -42,12 +42,15 @@ export async function getPageName(pageName: any){
   		},
 	})
   .then((response) => {
-    if(!response.ok){
+    if (!response.ok) {
         throw new Error(`Error with getting ${pageName} name`);
     }
     console.log(`${pageName} name obtained`);
-   return response.json()})
-   .then((data) => {return data;});
+    return response.json();
+  })
+  .then((data) => {
+      return data;
+  })
         
 }
 
