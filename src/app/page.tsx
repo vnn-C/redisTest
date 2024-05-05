@@ -225,8 +225,8 @@ export default function Home() {
   const testSix = data.setPageNameKey("SetTest", "Name");
   const testSeven = data.setPageSlugKey("SetTest", "Slug");
   const testEight = data.setPageContentKey("SetTest", JSON.stringify(testArr));
-  
-  const getTest = data.getPageName("SetTestName");
+  let getRes;
+  const getTest = data.getPageName("SetTestName").then((response) => {getRes = response;});
   const stringTest = JSON.stringify(getTest);
   const testVar = "Test Variable";
 
