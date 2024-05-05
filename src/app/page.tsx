@@ -213,18 +213,18 @@ export default async function Home() {
   }
 
   console.log("Starting");
-  const test = data.setPageProps("SetTest", JSON.stringify(testProps));
-  const testFour = data.getPageProps("SetTestProps");
+  //const test = data.setPageProps("SetTest", JSON.stringify(testProps));
+  //const testFour = data.getPageProps("SetTestProps");
   console.log("Success");
   //const testTwo = data.setPageName("SetTest", "Name");
   //renderTree("c102c1df8f984db0b1aeb0dada4fb70a");
-  arr.push("Test Here");
-  const testThree = data.setPageContent("SetTest", JSON.stringify(testArr));
+  //arr.push("Test Here");
+  //const testThree = data.setPageContent("SetTest", JSON.stringify(testArr));
 
-  const testFive = data.setPagePropsKey("SetTest", JSON.stringify(testProps));
-  const testSix = data.setPageNameKey("SetTest", "Name");
-  const testSeven = data.setPageSlugKey("SetTest", "Slug");
-  const testEight = data.setPageContentKey("SetTest", JSON.stringify(testArr));
+  //const testFive = data.setPagePropsKey("SetTest", JSON.stringify(testProps));
+  //const testSix = data.setPageNameKey("SetTest", "Name");
+  //const testSeven = data.setPageSlugKey("SetTest", "Slug");
+  //const testEight = data.setPageContentKey("SetTest", JSON.stringify(testArr));
   let getRes;
   let getResTwo;
   let stringTest;
