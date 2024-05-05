@@ -136,7 +136,7 @@ export async function setPageSlug(pageName: any, pageSlug: any){
 }
 
 //gets readable page slug from database
-export function getPageSlug(pageName: any){
+export async function getPageSlug(pageName: any){
 	fetch(`${process.env.KV_REST_API_URL}/get/${pageName}Slug`, {
   	headers: {
     		Authorization: `Bearer ${process.env.KV_REST_API_TOKEN}`,
