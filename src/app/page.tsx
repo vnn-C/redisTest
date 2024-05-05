@@ -214,17 +214,17 @@ export default async function Home() {
 
   console.log("Starting");
   const test = data.setPageProps("SetTest", JSON.stringify(testProps));
-  const testFour = data.getPageProps("SetTestProps");
+  const testFour = data.getPageProps("SetTest");
   const testSlug = data.setPageSlug("SetTest", "Slug");
-  const getSlug = data.getPageSlug("SetTestSlug");
-  console.log("Success");
+  const getSlug = data.getPageSlug("SetTest");
+  
   const testTwo = data.setPageName("SetTest", "Name");
-  const getName = data.getPageName("SetTestName");
+  const getName = data.getPageName("SetTest");
   
   //renderTree("c102c1df8f984db0b1aeb0dada4fb70a");
   //arr.push("Test Here");
   const testThree = data.setPageContent("SetTest", JSON.stringify(testArr));
-  const getContent = data.getPageContent("SetTestContent");
+  const getContent = data.getPageContent("SetTest");
   //const testFive = data.setPagePropsKey("SetTest", JSON.stringify(testProps));
   //const testSix = data.setPageNameKey("SetTest", "Name");
   //const testSeven = data.setPageSlugKey("SetTest", "Slug");
