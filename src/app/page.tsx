@@ -3,7 +3,7 @@ import styles from "./page.module.css";
 import * as data from "./data";
 import { stringify } from "querystring";
 import { renderToString } from "react-dom/server";
-export default function Home() {
+export default async function Home() {
   var arr: any[] = [];
 
   const testProps = {
@@ -226,7 +226,14 @@ export default function Home() {
   const testSeven = data.setPageSlugKey("SetTest", "Slug");
   const testEight = data.setPageContentKey("SetTest", JSON.stringify(testArr));
   let getRes;
+  let getResTwo;
   const getTest = data.getPageName("SetTestName").then((response) => {getRes = response;});
+  //try{
+    getResTwo = await data.getPageName("SetTestName");
+  //}
+ // catch(error){
+   // console.log(error);
+  //}
   const stringTest = JSON.stringify(getRes);
   const testVar = "Test Variable";
 
@@ -240,7 +247,7 @@ export default function Home() {
           {" More Testing "}
           {testVar}
           {" GetRes Test: "}
-          {getRes}
+          
           <code className={styles.code}>src/app/page.tsx</code>
         </p>
         <div>
