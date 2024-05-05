@@ -234,7 +234,7 @@ export default async function Home() {
  // catch(error){
    // console.log(error);
   //}
-  const stringTest = JSON.stringify(getRes);
+  const stringTest = JSON.stringify(getResTwo);
   const testVar = "Test Variable";
 
   return (
