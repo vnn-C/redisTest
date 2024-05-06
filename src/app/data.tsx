@@ -43,12 +43,12 @@ export async function getPageName(pageName: any){
 	})
   .then(response => {
     if (!response.ok) {
-      throw new Error('Failed to fetch data');
+      throw new Error(`Error with fetching ${pageName} data`);
     }
     return response.json(); // This returns a promise, so the next .then() will handle it
   })
   .then(data => {
-    console.log(`${pageName} name obtained: ` + data);
+    console.log(`${pageName} name obtained: ` + JSON.stringify(data));
     return data;
   });
         
