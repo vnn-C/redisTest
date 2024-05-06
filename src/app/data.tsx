@@ -36,15 +36,20 @@ export async function setPageName(pageName: any, pageId: any){
 
 export async function getPageName(pageName: any){
   
-	await fetch(`${process.env.KV_REST_API_URL}/get/${pageName}Name`, {
+	return fetch(`${process.env.KV_REST_API_URL}/get/${pageName}Name`, {
   	headers: {
     		Authorization: `Bearer ${process.env.KV_REST_API_TOKEN}`,
   		},
 	})
-  //.then((response) => response.json())
-  .then((data) => {
-    console.log(`${pageName} name obtained: ` + data.json);
-    return data.json;
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Failed to fetch data');
+    }
+    return response.json(); // This returns a promise, so the next .then() will handle it
+  })
+  .then(data => {
+    console.log(`${pageName} name obtained: ` + data);
+    return data;
   });
         
 }
