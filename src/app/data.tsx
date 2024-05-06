@@ -79,7 +79,7 @@ export async function setPageProps(pageName: any, props: any){
 }
 
 //gets page properties from redis database
-export function getPageProps(pageName: any){
+export async function getPageProps(pageName: any){
   
 	return fetch(`${process.env.KV_REST_API_URL}/get/${pageName}Props`, {
   	headers: {
@@ -120,7 +120,7 @@ export async function setPageContent(pageName: any, pageContent: any){
 }
 
 //gets page content from redis database
-export function getPageContent(pageName: any) {
+export async function getPageContent(pageName: any) {
     return fetch(`${process.env.KV_REST_API_URL}/get/${pageName}Content`, {
         headers: {
               Authorization: `Bearer ${process.env.KV_REST_API_TOKEN}`,
@@ -197,7 +197,7 @@ export async function setPageNameKey(pageName: any, pageId: any){
    return response.json()});
 }
 
-export function getPageNameKey(pageId: any){
+export async function getPageNameKey(pageId: any){
   return fetch(`${process.env.KV_REST_API_URL}/get/${pageId}`, {
   	headers: {
     		Authorization: `Bearer ${process.env.KV_REST_API_TOKEN}`,
@@ -232,7 +232,7 @@ export async function setPagePropsKey(pageName: any, pageProps: any){
     return response.json()});
 }
 
-export function getPagePropsKey(pageProps: any){
+export async function getPagePropsKey(pageProps: any){
   return fetch(`${process.env.KV_REST_API_URL}/get/${pageProps}`, {
   	headers: {
     		Authorization: `Bearer ${process.env.KV_REST_API_TOKEN}`,
@@ -267,7 +267,7 @@ export async function setPageSlugKey(pageName: any, pageSlug: any){
    return response.json()});
 }
 
-export function getPageSlugKey(pageSlug: any){
+export async function getPageSlugKey(pageSlug: any){
   return fetch(`${process.env.KV_REST_API_URL}/get/${pageSlug}`, {
   	headers: {
     		Authorization: `Bearer ${process.env.KV_REST_API_TOKEN}`,
@@ -302,7 +302,7 @@ export async function setPageContentKey(pageName: any, pageContent: any){
     return response.json()});
 }
 
-export function getPageContentKey(pageContent: any){
+export async function getPageContentKey(pageContent: any){
   return fetch(`${process.env.KV_REST_API_URL}/get/${pageContent}`, {
   	headers: {
     		Authorization: `Bearer ${process.env.KV_REST_API_TOKEN}`,
