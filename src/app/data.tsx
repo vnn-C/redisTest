@@ -93,7 +93,7 @@ export function getPageProps(pageName: any){
     return response.json();
   })
   .then(data => {
-    console.log(`${pageName}Props data obtained: ` + JSON.stringify(data["result"]));
+    console.log(`${pageName}Props data obtained: ` + data["result"]);
     return data["result"];
   });
 }
@@ -133,7 +133,7 @@ export function getPageContent(pageName: any) {
         return response.json();
       })
       .then(data => {
-        console.log(`${pageName}Content data obtained: ` + JSON.stringify(data["result"]));
+        console.log(`${pageName}Content data obtained: ` + data["result"]);
         return data["result"];
       });
 }
