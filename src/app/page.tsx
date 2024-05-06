@@ -217,7 +217,7 @@ export default async function Home() {
   const testFour = data.getPageProps("SetTest");
   let getSlug;
   const testSlug = data.setPageSlug("SetTest", "Slug");
-  getSlug = data.getPageSlug("SetTest").then(function(getSlug) {console.log("Test Slug: " + getSlug);});
+  getSlug = data.getPageSlug("SetTest");
   
   const testTwo = data.setPageName("SetTest", "Name");
   const getName = data.getPageName("SetTest");
@@ -227,14 +227,14 @@ export default async function Home() {
   const testThree = data.setPageContent("SetTest", JSON.stringify(testArr));
   const getContent = data.getPageContent("SetTest");
 
-  
+  console.log("Test Slug: " + await getSlug);
   //const testFive = data.setPagePropsKey("SetTest", JSON.stringify(testProps));
   //const testSix = data.setPageNameKey("SetTest", "Name");
   //const testSeven = data.setPageSlugKey("SetTest", "Slug");
   //const testEight = data.setPageContentKey("SetTest", JSON.stringify(testArr));
   let getRes;
   let getResTwo;
-  let stringTest;
+  let stringTest = JSON.stringify(getName);
   //const getTest = data.getPageName("SetTestName").then((response) => {getRes = response;});
   //try{
     //getResTwo = await data.getPageName("SetTestName");
@@ -256,7 +256,7 @@ export default async function Home() {
           {" More Testing "}
           {testVar}
           {" GetRes Test: "}
-          
+          {}
           <code className={styles.code}>src/app/page.tsx</code>
         </p>
         <div>

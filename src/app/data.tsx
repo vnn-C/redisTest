@@ -41,7 +41,7 @@ export function getPageName(pageName: any){
     		Authorization: `Bearer ${process.env.KV_REST_API_TOKEN}`,
   		},
 	})
-  .then((response) => response.json())
+  //.then((response) => response.json())
   .then((data) => console.log(data));
         
 }
