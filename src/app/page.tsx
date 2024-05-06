@@ -256,7 +256,7 @@ export default async function Home() {
           {" More Testing "}
           {testVar}
           {" GetRes Test: "}
-          {}
+          {getName}
           <code className={styles.code}>src/app/page.tsx</code>
         </p>
         <div>
