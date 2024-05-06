@@ -36,7 +36,7 @@ export async function setPageName(pageName: any, pageId: any){
 
 export async function getPageName(pageName: any){
   
-	return fetch(`${process.env.KV_REST_API_URL}/get/${pageName}Name`, {
+	fetch(`${process.env.KV_REST_API_URL}/get/${pageName}Name`, {
   	headers: {
     		Authorization: `Bearer ${process.env.KV_REST_API_TOKEN}`,
   		},
@@ -203,8 +203,16 @@ export function getPageNameKey(pageId: any){
     		Authorization: `Bearer ${process.env.KV_REST_API_TOKEN}`,
   		},
 	})
-  		.then((response) => response.json())
-            .then((data) => console.log(data));
+  .then(response => {
+    if (!response.ok) {
+      throw new Error(`Error with fetching ${pageId} Key`);
+    }
+    return response.json();
+  })
+  .then(data => {
+    console.log(`${pageId} Key obtained: ` + data["result"]);
+    return data["result"];
+  });
 }
 
 //page props key
@@ -230,8 +238,16 @@ export function getPagePropsKey(pageProps: any){
     		Authorization: `Bearer ${process.env.KV_REST_API_TOKEN}`,
   		},
 	})
-  		.then((response) => response.json())
-            .then((data) => console.log(data));
+  .then(response => {
+    if (!response.ok) {
+      throw new Error(`Error with fetching ${pageProps} Key`);
+    }
+    return response.json();
+  })
+  .then(data => {
+    console.log(`${pageProps} Key obtained: ` + data["result"]);
+    return data["result"];
+  });
 }
 
 //page slugs key
@@ -257,8 +273,16 @@ export function getPageSlugKey(pageSlug: any){
     		Authorization: `Bearer ${process.env.KV_REST_API_TOKEN}`,
   		},
 	})
-  		.then((response) => response.json())
-            .then((data) => console.log(data));
+  .then(response => {
+    if (!response.ok) {
+      throw new Error(`Error with fetching ${pageSlug} Key`);
+    }
+    return response.json();
+  })
+  .then(data => {
+    console.log(`${pageSlug}Key obtained: ` + data["result"]);
+    return data["result"];
+  });
 }
 
 //page content key
@@ -284,6 +308,14 @@ export function getPageContentKey(pageContent: any){
     		Authorization: `Bearer ${process.env.KV_REST_API_TOKEN}`,
   		},
 	})
-  		.then((response) => response.json())
-            .then((data) => console.log(data));
+  .then(response => {
+    if (!response.ok) {
+      throw new Error(`Error with fetching ${pageContent} Key`);
+    }
+    return response.json();
+  })
+  .then(data => {
+    console.log(`${pageContent} Key obtained: ` + data["result"]);
+    return data["result"];
+  });
 }
