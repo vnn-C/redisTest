@@ -48,8 +48,8 @@ export async function getPageName(pageName: any){
     return response.json(); // This returns a promise, so the next .then() will handle it
   })
   .then(data => {
-    console.log(`${pageName}Name data obtained: ` + JSON.stringify(data).valueOf);
-    return JSON.stringify(data).valueOf;
+    console.log(`${pageName}Name data obtained: ` + data["result"]);
+    return data["result"];
   });
         
 }
