@@ -45,7 +45,7 @@ export async function getPageName(pageName: any){
     if (!response.ok) {
       throw new Error(`Error with fetching ${pageName}Name data`);
     }
-    return response.json(); // This returns a promise, so the next .then() will handle it
+    return response.json();
   })
   .then(data => {
     console.log(`${pageName}Name data obtained: ` + data["result"]);
@@ -80,15 +80,22 @@ export async function setPageProps(pageName: any, props: any){
 
 //gets page properties from redis database
 export function getPageProps(pageName: any){
-  let res;
+  
 	fetch(`${process.env.KV_REST_API_URL}/get/${pageName}Props`, {
   	headers: {
     		Authorization: `Bearer ${process.env.KV_REST_API_TOKEN}`,
   		},
 	})
-  		.then((response) => response.json())
-        .then((data) => res = data);
-  return res;
+  .then(response => {
+    if (!response.ok) {
+      throw new Error(`Error with fetching ${pageName}Props data`);
+    }
+    return response.json();
+  })
+  .then(data => {
+    console.log(`${pageName}Props data obtained: ` + JSON.stringify(data["result"]));
+    return data["result"];
+  });
 }
 
 //inserts page content into redis database
@@ -119,8 +126,16 @@ export function getPageContent(pageName: any) {
               Authorization: `Bearer ${process.env.KV_REST_API_TOKEN}`,
             },
       })
-            .then((response) => response.json())
-              .then((data) => console.log(data));
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`Error with fetching ${pageName}Content data`);
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log(`${pageName}Content data obtained: ` + JSON.stringify(data["result"]));
+        return data["result"];
+      });
 }
 
 
@@ -150,10 +165,16 @@ export async function getPageSlug(pageName: any){
     		Authorization: `Bearer ${process.env.KV_REST_API_TOKEN}`,
   		},
 	})
-  		.then((response) => response.json())
-            .then((data) => {console.log(data);
-            return data;
-            });
+  .then(response => {
+    if (!response.ok) {
+      throw new Error(`Error with fetching ${pageName}Slug data`);
+    }
+    return response.json();
+  })
+  .then(data => {
+    console.log(`${pageName}Slug data obtained: ` + data["result"]);
+    return data["result"];
+  });
         
 }
     
