@@ -36,7 +36,7 @@ export async function setPageName(pageName: any, pageId: any){
 
 export async function getPageName(pageName: any){
   
-	fetch(`${process.env.KV_REST_API_URL}/get/${pageName}Name`, {
+	await fetch(`${process.env.KV_REST_API_URL}/get/${pageName}Name`, {
   	headers: {
     		Authorization: `Bearer ${process.env.KV_REST_API_TOKEN}`,
   		},
