@@ -42,7 +42,10 @@ export async function getPageName(pageName: any){
   		},
 	})
   //.then((response) => response.json())
-  .then((data) => console.log(data));
+  .then((data) => {
+    console.log(`${pageName} obtained: ` + data);
+    return data;
+  });
         
 }
 
