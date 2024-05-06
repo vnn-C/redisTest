@@ -36,7 +36,7 @@ export async function setPageName(pageName: any, pageId: any){
 
 export async function getPageName(pageName: any){
   
-	fetch(`${process.env.KV_REST_API_URL}/get/${pageName}Name`, {
+	return fetch(`${process.env.KV_REST_API_URL}/get/${pageName}Name`, {
   	headers: {
     		Authorization: `Bearer ${process.env.KV_REST_API_TOKEN}`,
   		},
@@ -81,7 +81,7 @@ export async function setPageProps(pageName: any, props: any){
 //gets page properties from redis database
 export function getPageProps(pageName: any){
   
-	fetch(`${process.env.KV_REST_API_URL}/get/${pageName}Props`, {
+	return fetch(`${process.env.KV_REST_API_URL}/get/${pageName}Props`, {
   	headers: {
     		Authorization: `Bearer ${process.env.KV_REST_API_TOKEN}`,
   		},
@@ -121,7 +121,7 @@ export async function setPageContent(pageName: any, pageContent: any){
 
 //gets page content from redis database
 export function getPageContent(pageName: any) {
-    fetch(`${process.env.KV_REST_API_URL}/get/${pageName}Content`, {
+    return fetch(`${process.env.KV_REST_API_URL}/get/${pageName}Content`, {
         headers: {
               Authorization: `Bearer ${process.env.KV_REST_API_TOKEN}`,
             },
@@ -160,7 +160,7 @@ export async function setPageSlug(pageName: any, pageSlug: any){
 
 //gets readable page slug from database
 export async function getPageSlug(pageName: any){
-	fetch(`${process.env.KV_REST_API_URL}/get/${pageName}Slug`, {
+	return fetch(`${process.env.KV_REST_API_URL}/get/${pageName}Slug`, {
   	headers: {
     		Authorization: `Bearer ${process.env.KV_REST_API_TOKEN}`,
   		},
@@ -198,7 +198,7 @@ export async function setPageNameKey(pageName: any, pageId: any){
 }
 
 export function getPageNameKey(pageId: any){
-  fetch(`${process.env.KV_REST_API_URL}/get/${pageId}`, {
+  return fetch(`${process.env.KV_REST_API_URL}/get/${pageId}`, {
   	headers: {
     		Authorization: `Bearer ${process.env.KV_REST_API_TOKEN}`,
   		},
@@ -233,7 +233,7 @@ export async function setPagePropsKey(pageName: any, pageProps: any){
 }
 
 export function getPagePropsKey(pageProps: any){
-  fetch(`${process.env.KV_REST_API_URL}/get/${pageProps}`, {
+  return fetch(`${process.env.KV_REST_API_URL}/get/${pageProps}`, {
   	headers: {
     		Authorization: `Bearer ${process.env.KV_REST_API_TOKEN}`,
   		},
@@ -268,7 +268,7 @@ export async function setPageSlugKey(pageName: any, pageSlug: any){
 }
 
 export function getPageSlugKey(pageSlug: any){
-  fetch(`${process.env.KV_REST_API_URL}/get/${pageSlug}`, {
+  return fetch(`${process.env.KV_REST_API_URL}/get/${pageSlug}`, {
   	headers: {
     		Authorization: `Bearer ${process.env.KV_REST_API_TOKEN}`,
   		},
@@ -303,7 +303,7 @@ export async function setPageContentKey(pageName: any, pageContent: any){
 }
 
 export function getPageContentKey(pageContent: any){
-  fetch(`${process.env.KV_REST_API_URL}/get/${pageContent}`, {
+  return fetch(`${process.env.KV_REST_API_URL}/get/${pageContent}`, {
   	headers: {
     		Authorization: `Bearer ${process.env.KV_REST_API_TOKEN}`,
   		},

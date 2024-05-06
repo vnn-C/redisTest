@@ -252,9 +252,10 @@ export default async function Home() {
         
         <p>
           Get started by editing&nbsp;
-          {stringTest}
+          <p>{testFour}</p>
+          <p>{getContent}</p>
           {" More Testing "}
-          {testVar}
+          {getSlug}
           {" GetRes Test: "}
           {getName}
           <code className={styles.code}>src/app/page.tsx</code>
