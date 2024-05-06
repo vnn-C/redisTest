@@ -66,7 +66,7 @@ export async function setPageProps(pageName: any, props: any){
         headers: {
             Authorization: `Bearer ${process.env.KV_REST_API_TOKEN}`,
           },
-          body: JSON.stringify(props),
+          body: props,
           method: 'POST',
         })
           .then((response) => {
