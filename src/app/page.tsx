@@ -246,6 +246,9 @@ export default async function Home() {
   
   const testVar = "Test Variable";
 
+  const delTest = data.setPageName("Delete", "DeleteMe");
+  const delTesting = data.deleteKey("DeleteName");
+
   return (
     <main className={styles.main}>
       <div className={styles.description}>

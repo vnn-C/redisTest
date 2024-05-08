@@ -3,12 +3,12 @@
 //import { NotionPage } from "@/components/notion";
 
 //database structure used for data.tsx per notion page: (Subject to change)
-//page name's page id - pageName : pageId
-//page contents - pageNameContents : array of block children obtained through renderTree()
-//page slug - pageNameSlug : url slug for page
-//page properties - pageNameProps : json of page properties from retrieving the notion page
+//page name's page id - pageName(string) : pageId(string)
+//page contents - pageNameContents(string) : array of block children obtained through renderTree() (JSON Array)
+//page slug - pageNameSlug(string) : url slug for page(string)
+//page properties - pageNameProps(string) : json of page properties from retrieving the notion page (JSON Object)
 
-//TODO: add another record for value:key per notion page
+//record for value:key per notion page
 //pageId : pageName
 //array of block children obtained from renderTree() : pageNameContents
 //url slug for page : pageNameSlug
@@ -177,10 +177,12 @@ export async function getPageSlug(pageName: any){
   });
         
 }
-    
+ 
+
+
 //functions for value:key pairs
 
-//page name key
+//page id key
 export async function setPageNameKey(pageName: any, pageId: any){
   fetch(`${process.env.KV_REST_API_URL}/set/${pageId}`, {
     headers: {
@@ -191,7 +193,7 @@ export async function setPageNameKey(pageName: any, pageId: any){
 })
 .then((response) => {
     if(!response.ok){
-        throw new Error(`Error with setting ${pageId} name key`);
+        throw new Error(`Error with setting ${pageId} Key`);
     }
     console.log(`${pageId} name set`);
    return response.json()});
@@ -226,7 +228,7 @@ export async function setPagePropsKey(pageName: any, pageProps: any){
     })
     .then((response) => {
       if(!response.ok){
-          throw new Error(`Error with setting ${pageName} name`);
+          throw new Error(`Error with setting ${pageProps} Key`);
       }
       console.log(`${pageName} name set`);
     return response.json()});
@@ -261,7 +263,7 @@ export async function setPageSlugKey(pageName: any, pageSlug: any){
 })
 .then((response) => {
     if(!response.ok){
-        throw new Error(`Error with setting ${pageName} name`);
+        throw new Error(`Error with setting ${pageSlug} Key`);
     }
     console.log(`${pageName} name set`);
    return response.json()});
@@ -296,7 +298,7 @@ export async function setPageContentKey(pageName: any, pageContent: any){
   })
   .then((response) => {
       if(!response.ok){
-          throw new Error(`Error with setting ${pageName} name`);
+          throw new Error(`Error with setting ${pageContent} Key`);
       }
       console.log(`${pageName} name set`);
     return response.json()});
@@ -318,4 +320,19 @@ export async function getPageContentKey(pageContent: any){
     console.log(`${pageContent} Key obtained: ` + data["result"]);
     return data["result"];
   });
+}
+
+export async function deleteKey(pageKey: any){
+  fetch(`${process.env.KV_REST_API_URL}/del/${pageKey}`, {
+    headers: {
+        Authorization: `Bearer ${process.env.KV_REST_API_TOKEN}`,
+      },
+      method: 'DELETE',
+})
+.then((response) => {
+    if(!response.ok){
+        throw new Error(`Error with deleting ${pageKey}`);
+    }
+    console.log(`${pageKey} deleted`);
+   return response.json()});
 }
