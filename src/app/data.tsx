@@ -2,6 +2,8 @@
 //import { notion } from "@/notion"
 //import { NotionPage } from "@/components/notion";
 
+
+
 //database structure used for data.tsx per notion page: (Subject to change)
 //page name's page id - pageName(string) : pageId(string)
 //page contents - pageNameContents(string) : array of block children obtained through renderTree() (JSON Array)
@@ -322,17 +324,4 @@ export async function getPageContentKey(pageContent: any){
   });
 }
 
-export async function deleteKey(pageKey: any){
-  fetch(`${process.env.KV_REST_API_URL}/del/${pageKey}`, {
-    headers: {
-        Authorization: `Bearer ${process.env.KV_REST_API_TOKEN}`,
-      },
-      method: 'DELETE',
-})
-.then((response) => {
-    if(!response.ok){
-        throw new Error(`Error with deleting ${pageKey}`);
-    }
-    console.log(`${pageKey} deleted`);
-   return response.json()});
-}
+
